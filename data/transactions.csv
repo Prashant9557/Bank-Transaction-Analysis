@@ -12,3 +12,6 @@ transaction_id,customer_id,amount,transaction_type,transaction_date,merchant,pay
 11,101,5000,Credit,2024-02-01,Salary,BankTransfer,Salary
 12,102,6000,Credit,2024-02-01,Salary,BankTransfer,Salary
 13,103,7000,Credit,2024-02-01,Salary,BankTransfer,Salary
+14,104,20000,Debit,2024-03-10,Myntra,CreditCard,Shopping
+15,104,18000,Credit,2024-04-01,Payment,BankTransfer,Repayment
+16,105,3000,Debit,2024-03-15,BigBasket,DebitCard,Shopping
