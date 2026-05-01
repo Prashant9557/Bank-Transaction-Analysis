@@ -1,0 +1,14 @@
+transaction_id,customer_id,amount,transaction_type,transaction_date,merchant,payment_type,transaction_category
+1,101,1000,Debit,2024-01-05,Amazon,CreditCard,Shopping
+2,101,400,Credit,2024-02-03,Payment,BankTransfer,Repayment
+3,102,1500,Debit,2024-01-10,Flipkart,CreditCard,Shopping
+4,102,1500,Credit,2024-02-05,Payment,BankTransfer,Repayment
+5,103,2000,Debit,2024-01-15,Zomato,CreditCard,Shopping
+6,103,0,Credit,2024-02-10,Payment,BankTransfer,Repayment
+7,101,800,Debit,2024-02-10,Amazon,CreditCard,Shopping
+8,101,800,Credit,2024-03-05,Payment,BankTransfer,Repayment
+9,102,500,Debit,2024-02-15,Swiggy,CreditCard,Shopping
+10,102,200,Credit,2024-03-01,Payment,BankTransfer,Repayment
+11,101,5000,Credit,2024-02-01,Salary,BankTransfer,Salary
+12,102,6000,Credit,2024-02-01,Salary,BankTransfer,Salary
+13,103,7000,Credit,2024-02-01,Salary,BankTransfer,Salary
