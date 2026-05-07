@@ -6,7 +6,7 @@ WITH spend AS (
         COUNT(*) AS spend_transactions
     FROM transactions
     WHERE transaction_type = 'Debit'
-      AND payment_type = 'CreditCard'
+      AND (payment_type = 'CreditCard' OR payment_type = 'DebitCard')
     GROUP BY customer_id, month
 ),
 
@@ -44,7 +44,15 @@ SELECT
     t.total_transactions,
     t.total_amount_flow,
 
-    (s.total_spend - COALESCE(r.total_repayment, 0)) AS outstanding
+    (s.total_spend - COALESCE(r.total_repayment, 0)) AS outstanding,
+
+    SUM(
+    s.total_spend - COALESCE(r.total_repayment, 0)
+    )
+    OVER (
+        PARTITION BY s.customer_id
+        ORDER BY s.month
+    ) AS running_outstanding
 
 FROM spend s
 
