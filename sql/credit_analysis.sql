@@ -1,4 +1,3 @@
--- Monthly Credit Card Spend
 WITH spend AS (
     SELECT 
         customer_id,
@@ -11,7 +10,6 @@ WITH spend AS (
     GROUP BY customer_id, month
 ),
 
--- Monthly Repayment (ONLY repayment, not salary)
 repayment AS (
     SELECT 
         customer_id,
@@ -24,7 +22,6 @@ repayment AS (
     GROUP BY customer_id, month
 ),
 
--- Total transactions (ALL types)
 total_txn AS (
     SELECT
         customer_id,
@@ -35,24 +32,18 @@ total_txn AS (
     GROUP BY customer_id, month
 )
 
--- Final Join
 SELECT 
     s.customer_id,
     s.month AS spend_month,
-
-    -- Spend details
     s.total_spend,
     s.spend_transactions,
 
-    -- Repayment details
     COALESCE(r.total_repayment, 0) AS total_repayment,
     COALESCE(r.repayment_transactions, 0) AS repayment_transactions,
 
-    -- Overall activity
     t.total_transactions,
     t.total_amount_flow,
 
-    -- Outstanding
     (s.total_spend - COALESCE(r.total_repayment, 0)) AS outstanding
 
 FROM spend s
